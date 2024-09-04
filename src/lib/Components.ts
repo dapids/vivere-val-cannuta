@@ -7,7 +7,7 @@ export const Container = styled.div.withConfig({
 })<{ background: string }>`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100dvh;
   margin: 0 auto;
   position: relative;
 
@@ -38,7 +38,7 @@ export const Header = styled.header`
   height: 70px;
   left: 0;
   padding: 0 8px;
-  position: fixed;
+  position: sticky;
   right: 0;
   top: 0;
 `
@@ -88,7 +88,7 @@ export const Button = styled.a`
 
 export const Number = styled.span`
   color: #81C784;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
 `
 
