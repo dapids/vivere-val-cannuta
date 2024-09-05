@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import StyledComponentsRegistry from '@/lib/StyledComponentsRegistry';
-import { GlobalStyle } from './GlobalStyle';
+import { GlobalStyle } from '../lib/GlobalStyle';
 import { inter, playfairDisplay } from '@/app/fonts';
 
 export const metadata: Metadata = {
   description: "Community dedicata a tutti gli abitanti del quartiere Val Cannuta a Roma.",
-  title: "Vivere Val Cannuta - Roma",
+  title: "Vivere Val Cannuta - La community del quartiere Val Cannuta di Roma",
 
 };
 

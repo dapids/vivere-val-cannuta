@@ -13,7 +13,7 @@ const Text = styled.p.withConfig({
 const getMembers = () => fetch('https://discord.com/api/guilds/1275895301152047166/widget.json')
 
 export const Members = () => {
-  const [members, setMembers] = useState<number | null>()
+  const [members, setMembers] = useState<number>()
 
   useEffect(() => {
     const run = async () => {
@@ -26,7 +26,9 @@ export const Members = () => {
     run().catch(() => {})
   }, [])
 
+  const ready = !!members
+
   return members === 1
-  ? <Text ready={!!members}>Al momento c&apos;è <Number>{members}</Number> utente online.</Text>
-  : <Text ready={!!members}>Al momento ci sono <Number>{members}</Number> utenti online.</Text>
+  ? <Text ready={ready}>Al momento c&apos;è <Number>{members}</Number> utente online.</Text>
+  : <Text ready={ready}>Al momento ci sono <Number>{members}</Number> utenti online.</Text>
 }

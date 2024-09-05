@@ -2,23 +2,21 @@
 
 import styled from 'styled-components';
 
-export const Container = styled.div.withConfig({
-  shouldForwardProp: (prop) => !['background'].includes(prop),
-})<{ background: string }>`
+export const Container = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  height: 100dvh;
-  margin: 0 auto;
+  min-height: 100dvh;
   position: relative;
 
   &::after {
-    background-image: ${({ background }) => `url(${background})`};
+    background-image: url(/background.webp);
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat-x;
     background-size: auto 100%;
     bottom: 0;
     content: '';
-    height: 300px;
+    height: 200px;
     left: 0;
     position: absolute;
     right: 0;
@@ -26,7 +24,7 @@ export const Container = styled.div.withConfig({
     z-index: 0;
   }
 
-  * {
+  & > * {
     z-index: 1;
   }
 `;
@@ -36,19 +34,20 @@ export const Header = styled.header`
   border-bottom: 1px solid #dddddd;
   display: flex;
   height: 70px;
-  left: 0;
-  padding: 0 8px;
-  position: sticky;
-  right: 0;
-  top: 0;
+  width: 100%;
+
+  & > * {
+    margin: 0 8px;
+  }
 `
 
 export const Hero = styled.div`
   align-content: center;
+  flex-direction: column;
   flex-grow: 1;
-  margin: -200px auto 0;
+  margin: 20px auto 0;
   max-width: 800px;
-  padding: 0 24px;
+  padding: 0 20px;
 `;
 
 export const H1 = styled.h1`
@@ -56,14 +55,14 @@ export const H1 = styled.h1`
   display: flex;
   flex-wrap: wrap;
   font-family: "Playfair Display";
-  font-size: 60px;
+  font-size: 55px;
   letter-spacing: -.02em;
-  margin: 0 auto 20px;
+  margin: 0 0 20px;
 `;
 
 export const H2 = styled.h2`
   font-size: 20px;
-  margin: 0 auto 20px;
+  margin: 0 0 20px;
   text-transform: uppercase;
 `;
 
@@ -75,7 +74,7 @@ export const Button = styled.a`
   border: 3px solid #81C784;
   color: #81C784;
   display: inline-block;
-  margin: 10px auto 0;
+  margin: 10px 0 0;
   padding: 10px 20px;
   text-decoration: none;
   text-transform: uppercase;
@@ -90,6 +89,10 @@ export const Number = styled.span`
   color: #81C784;
   font-size: 20px;
   font-weight: bold;
+`
+
+export const Margin = styled.div`
+  margin: 0 0 250px;
 `
 
 export const Footer = styled.footer`

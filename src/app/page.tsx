@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import logo from './logo-192x192.png';
-import { Members } from '@/app/Members';
-import { Button, Container, Dot, Footer, H1, H2, Header, Hero } from '@/lib/Components';
+import { Members } from '@/lib/Members';
+import { Button, Container, Dot, Footer, H1, H2, Header, Hero, Margin } from '@/lib/Components';
 
 const startingYear = 2024
 const currentYear = new Date().getFullYear()
@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <div id="top" />
-      <Container background="/quartiere_2.jpg">
+      <Container>
         <Header>
           <Image alt="Logo di Vivere Val Cannuta" height={60} src={logo}></Image>
         </Header>
@@ -28,6 +28,8 @@ export default function Home() {
           <Button href="https://discord.gg/J2whmnHhTG" target="_blank">Unisciti alla community</Button>
 
           <Members />
+
+          <Margin />
         </Hero>
       </Container>
       <Footer>
