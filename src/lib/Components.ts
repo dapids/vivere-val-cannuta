@@ -1,6 +1,6 @@
 'use client';
 
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const AboveFolderContainer = styled.div`
   align-items: center;
@@ -94,6 +94,88 @@ export const Number = styled.span`
 export const Margin = styled.div`
   margin: 0 0 250px;
 `
+
+const bounce = keyframes`
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+
+  40% {
+    transform: translateY(8px);
+  }
+
+  60% {
+    transform: translateY(4px);
+  }
+`;
+
+export const ScrollCtaWrap = styled.div`
+  align-items: center;
+  bottom: 132px;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+  z-index: 1;
+
+  @media (max-width: 700px) {
+    bottom: 116px;
+  }
+`;
+
+export const ScrollCta = styled.a`
+  align-items: center;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid #d9e3d5;
+  border-radius: 999px;
+  box-shadow: 0 10px 28px rgba(58, 80, 63, 0.12);
+  color: #6d8f71;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  gap: 10px;
+  letter-spacing: 0.08em;
+  padding: 10px 16px 10px 18px;
+  pointer-events: auto;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  &::after {
+    align-items: center;
+    border: 2px solid #cfe0c8;
+    border-radius: 999px;
+    content: '↓';
+    display: inline-flex;
+    font-size: 18px;
+    height: 34px;
+    justify-content: center;
+    line-height: 1;
+    transition: background-color 0.2s ease;
+    width: 34px;
+  }
+
+  animation: ${bounce} 1.8s ease-in-out infinite;
+
+  &:hover {
+    animation-play-state: paused;
+  }
+
+  &:hover::after {
+    background-color: #f1f7ee;
+  }
+`;
+
+export const BelowFoldSection = styled.section`
+  margin: 0;
+  width: 100%;
+`;
 
 export const Footer = styled.footer`
   font-size: 15px;

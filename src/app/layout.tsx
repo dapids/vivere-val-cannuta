@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics } from '@next/third-parties/google';
+import 'leaflet/dist/leaflet.css';
 import StyledComponentsRegistry from '@/lib/StyledComponentsRegistry';
 import { GlobalStyle } from '../lib/GlobalStyle';
 import { inter, playfairDisplay } from '@/app/fonts';

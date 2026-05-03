@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import logo from './logo-192x192.png';
 import { Members } from '@/lib/Members';
-import { Button, AboveFolderContainer, Dot, Footer, H1, H2, Header, Hero, Margin } from '@/lib/Components';
+import { NeighborhoodMap } from '@/lib/NeighborhoodMap';
+import { BelowFoldSection, Button, AboveFolderContainer, Dot, Footer, H1, H2, Header, Hero, Margin, ScrollCta, ScrollCtaWrap } from '@/lib/Components';
 
 const startingYear = 2024
 const currentYear = new Date().getFullYear()
@@ -31,7 +32,15 @@ export default function Home() {
 
           <Margin />
         </Hero>
+
+        <ScrollCtaWrap>
+          <ScrollCta href="#mappa">Scopri la mappa</ScrollCta>
+        </ScrollCtaWrap>
       </AboveFolderContainer>
+
+      <BelowFoldSection>
+        <NeighborhoodMap />
+      </BelowFoldSection>
 
       <Footer>
         <p>
