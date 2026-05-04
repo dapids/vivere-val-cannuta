@@ -71,17 +71,26 @@ export const Dot = styled.span`
 `
 
 export const Button = styled.a`
-  border: 3px solid #81C784;
-  color: #81C784;
-  display: inline-block;
-  margin: 10px 0 0;
-  padding: 10px 20px;
+  align-items: center;
+  background: #81c784;
+  border: 1px solid #73b477;
+  border-radius: 999px;
+  box-shadow: 0 10px 28px rgba(58, 80, 63, 0.16);
+  color: #ffffff;
+  display: inline-flex;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 12px 0 0;
+  padding: 11px 18px;
   text-decoration: none;
   text-transform: uppercase;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 
   &:hover {
-    background-color: #81C784;
-    color: #f9f9f9;
+    background-color: #6ea96e;
+    box-shadow: 0 14px 30px rgba(58, 80, 63, 0.22);
+    transform: translateY(-1px);
   }
 `;
 
@@ -146,6 +155,7 @@ export const ScrollCta = styled.a`
   pointer-events: auto;
   text-decoration: none;
   text-transform: uppercase;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
 
   &::after {
     align-items: center;
@@ -165,6 +175,8 @@ export const ScrollCta = styled.a`
 
   &:hover {
     animation-play-state: paused;
+    box-shadow: 0 14px 30px rgba(58, 80, 63, 0.16);
+    transform: translateY(-1px);
   }
 
   &:hover::after {
@@ -178,7 +190,9 @@ export const BelowFoldSection = styled.section`
 `;
 
 export const Footer = styled.footer`
-  font-size: 15px;
+  border-top: 1px solid #dddddd;
+  font-size: 13px;
+  margin-top: 8px;
   padding: 4px 24px;
   text-align: center;
 `;

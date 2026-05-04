@@ -34,7 +34,7 @@ export default function Home() {
         </Hero>
 
         <ScrollCtaWrap>
-          <ScrollCta href="#mappa">Scopri la mappa</ScrollCta>
+          <ScrollCta href="#mappa">Scopri la mappa del quartiere</ScrollCta>
         </ScrollCtaWrap>
       </AboveFolderContainer>
 
@@ -46,7 +46,7 @@ export default function Home() {
         <p>
           &copy; {copyrightYears} Vivere Val Cannuta
           <br />
-          Sito web realizzato col ❤️ da <a href="https://www.davidsorrentino.com/" target="_blank">David Sorrentino</a>
+          Sito web realizzato da <a href="https://www.davidsorrentino.com/" target="_blank">David Sorrentino</a>
         </p>
       </Footer>
     </>
