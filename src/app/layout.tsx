@@ -80,6 +80,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="it" className={`${inter.className} ${playfairDisplay}`}>
+      <head>
+        <link rel="preconnect" href="https://tile.openstreetmap.fr" />
+        <link rel="preconnect" href="https://a.tile.openstreetmap.fr" />
+        <link rel="preconnect" href="https://b.tile.openstreetmap.fr" />
+        <link rel="preconnect" href="https://c.tile.openstreetmap.fr" />
+      </head>
       <GoogleAnalytics gaId="G-WSEC0GBNE1" />
       <body>
         <StyledComponentsRegistry>

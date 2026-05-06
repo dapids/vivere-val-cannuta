@@ -1,16 +1,9 @@
 import type { Metadata } from 'next';
 import { NeighborhoodMapPage } from '@/lib/neighborhood-map/NeighborhoodMapPage';
-import { categories, markers } from '@/lib/neighborhood-map/mapData';
 
 const siteUrl = 'https://viverevalcannuta.it';
 const pageTitle = 'Mappa del quartiere Val Cannuta';
 const pageDescription = 'Mappa interattiva di Val Cannuta con parchi, servizi, attività locali, punti di interesse e riferimenti utili nel quartiere di Roma.';
-
-const categorySummary = categories.map(([tone, meta]) => ({
-  count: markers.filter((marker) => marker.tone === tone).length,
-  label: meta.label,
-  tone,
-}));
 
 export const metadata: Metadata = {
   title: pageTitle,
@@ -103,17 +96,6 @@ export default function MappaPage() {
           },
         ],
       },
-      {
-        '@type': 'ItemList',
-        '@id': `${siteUrl}/mappa#categorie`,
-        name: 'Categorie della mappa di Val Cannuta',
-        numberOfItems: categorySummary.length,
-        itemListElement: categorySummary.map((category, index) => ({
-          '@type': 'ListItem',
-          position: index + 1,
-          name: `${category.label} (${category.count})`,
-        })),
-      },
     ],
   };
 
@@ -124,25 +106,6 @@ export default function MappaPage() {
         type="application/ld+json"
       />
       <NeighborhoodMapPage />
-      <section aria-labelledby="mappa-seo-heading" style={{ margin: '0 auto', maxWidth: '960px', padding: '24px 20px 40px' }}>
-        <h2 id="mappa-seo-heading" style={{ color: '#405544', fontFamily: '"Playfair Display"', fontSize: '32px', lineHeight: 1.1, margin: '0 0 12px' }}>
-          Mappa locale di Val Cannuta
-        </h2>
-        <p style={{ color: '#4f5d53', lineHeight: 1.6, margin: '0 0 12px' }}>
-          Questa pagina raccoglie in un unico punto i riferimenti utili del quartiere Val Cannuta a Roma: aree verdi, servizi di prossimità,
-          attività commerciali e luoghi frequentati ogni giorno dai residenti.
-        </p>
-        <p style={{ color: '#4f5d53', lineHeight: 1.6, margin: '0 0 16px' }}>
-          La mappa viene aggiornata per offrire un orientamento rapido nel quartiere e facilitare la scoperta di punti di interesse nella zona
-          ovest della città.
-        </p>
-        <h3 style={{ color: '#405544', fontSize: '20px', margin: '0 0 10px' }}>Categorie presenti nella mappa</h3>
-        <ul style={{ color: '#4f5d53', lineHeight: 1.5, margin: 0, paddingLeft: '20px' }}>
-          {categorySummary.map((category) => (
-            <li key={category.tone}>{category.label}: {category.count}</li>
-          ))}
-        </ul>
-      </section>
     </>
   );
 }
