@@ -24,6 +24,7 @@ export const NeighborhoodMapPage = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<import('leaflet').Map | null>(null);
   const markerRefs = useRef<Array<import('leaflet').Marker>>([]);
+  const legendCardRef = useRef<HTMLDivElement | null>(null);
   const [selectedTone, setSelectedTone] = useState<MarkerTone | null>(null);
   const [mapReady, setMapReady] = useState(false);
   const [legendOpen, setLegendOpen] = useState(true);
@@ -49,6 +50,21 @@ export const NeighborhoodMapPage = () => {
       setLegendOpen(false);
     }
   }, []);
+
+  useEffect(() => {
+    const handlePointerDown = (e: PointerEvent) => {
+      if (
+        legendOpen &&
+        window.matchMedia('(max-width: 700px)').matches &&
+        legendCardRef.current &&
+        !legendCardRef.current.contains(e.target as Node)
+      ) {
+        setLegendOpen(false);
+      }
+    };
+    document.addEventListener('pointerdown', handlePointerDown);
+    return () => document.removeEventListener('pointerdown', handlePointerDown);
+  }, [legendOpen]);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -150,7 +166,7 @@ export const NeighborhoodMapPage = () => {
       <MapShell>
         <div aria-label="Mappa del quartiere Val Cannuta" ref={containerRef} />
         <Legend aria-label="Legenda mappa">
-          <LegendCard>
+          <LegendCard ref={legendCardRef}>
             <LegendHeader
               aria-label={legendOpen ? 'Chiudi legenda' : 'Apri legenda'}
               onClick={() => setLegendOpen((prev) => !prev)}
