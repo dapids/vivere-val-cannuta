@@ -9,6 +9,7 @@ export const AboveFolderContainer = styled.div`
   height: 100dvh;
   overflow: hidden;
   position: relative;
+  width: 100%;
 
   &::after {
     background-image: url(/background.webp);
@@ -27,6 +28,14 @@ export const AboveFolderContainer = styled.div`
 
   & > * {
     z-index: 1;
+  }
+
+  @media (max-height: 760px) {
+    height: auto;
+    min-height: 100dvh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 72px;
   }
 `;
 
@@ -51,6 +60,13 @@ export const Hero = styled.div`
   margin: 0 auto;
   max-width: 800px;
   padding: 0 20px;
+
+  @media (max-height: 760px) {
+    flex-grow: 0;
+    justify-content: flex-start;
+    padding-top: 20px;
+    padding-bottom: 12px;
+  }
 `;
 
 export const H1 = styled.h1`
