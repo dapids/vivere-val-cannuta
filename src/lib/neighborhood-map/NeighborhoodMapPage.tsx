@@ -3,9 +3,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { categories, iconFromCodePoint, markers, type MarkerTone } from './mapData';
 import {
-  CloseMapArrow,
-  CloseMapButton,
-  CloseMapLabel,
   Legend,
   LegendButton,
   LegendCard,
@@ -15,18 +12,15 @@ import {
   LegendMarker,
   LegendTitle,
   LegendToggle,
-  MapModal,
-  MapModalBackdrop,
-  MapModalHeader,
-  MapModalPanel,
+  MapPage,
+  MapPageBackArrow,
+  MapPageBackLabel,
+  MapPageBackLink,
+  MapPageHeader,
   MapShell,
 } from './styles';
 
-type NeighborhoodMapModalProps = {
-  onClose: () => void;
-};
-
-export const NeighborhoodMapModal = ({ onClose }: NeighborhoodMapModalProps) => {
+export const NeighborhoodMapPage = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<import('leaflet').Map | null>(null);
   const markerRefs = useRef<Array<import('leaflet').Marker>>([]);
@@ -54,22 +48,7 @@ export const NeighborhoodMapModal = ({ onClose }: NeighborhoodMapModalProps) => 
     if (window.matchMedia('(max-width: 700px)').matches) {
       setLegendOpen(false);
     }
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
-        onClose();
-      }
-    };
-
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    window.addEventListener('keydown', handleKeyDown);
-
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [onClose]);
+  }, []);
 
   useEffect(() => {
     const map = mapRef.current;
@@ -142,8 +121,8 @@ export const NeighborhoodMapModal = ({ onClose }: NeighborhoodMapModalProps) => 
         mapInstance.invalidateSize();
         mapInstance.fitBounds(markerBounds, {
           maxZoom: 16,
-          paddingBottomRight: isMobile ? [18, 32] : [220, 40],
-          paddingTopLeft: isMobile ? [18, 84] : [24, 92],
+          paddingBottomRight: isMobile ? [18, 18] : [220, 28],
+          paddingTopLeft: isMobile ? [18, 18] : [28, 28],
         });
       });
 
@@ -161,51 +140,46 @@ export const NeighborhoodMapModal = ({ onClose }: NeighborhoodMapModalProps) => 
   }, []);
 
   return (
-    <MapModal aria-label="Mappa quartiere a schermo intero" role="dialog" aria-modal="true">
-      <MapModalBackdrop aria-label="Chiudi mappa" onClick={onClose} type="button" />
-      <MapModalPanel>
-        <MapModalHeader>
-          <CloseMapButton aria-label="Torna alla pagina" onClick={onClose} type="button">
-            <CloseMapArrow aria-hidden="true">←</CloseMapArrow>
-            <CloseMapLabel>Indietro</CloseMapLabel>
-          </CloseMapButton>
-        </MapModalHeader>
-        <MapShell>
-          <div aria-label="Mappa del quartiere Val Cannuta" ref={containerRef} />
-          <Legend aria-label="Legenda mappa">
-            <LegendCard>
-              <LegendHeader
-                aria-label={legendOpen ? 'Chiudi legenda' : 'Apri legenda'}
-                onClick={() => setLegendOpen((prev) => !prev)}
-                type="button"
-              >
-                <LegendTitle>Legenda</LegendTitle>
-                <LegendToggle aria-hidden="true">
-                  {legendOpen ? '−' : '+'}
-                </LegendToggle>
-              </LegendHeader>
-              {legendOpen && (
-                <LegendList>
-                  {categories.map(([tone, meta]) => (
-                    <LegendItem key={tone}>
-                      <LegendButton
-                        $hidden={selectedTone !== null && selectedTone !== tone}
-                        onClick={() => setSelectedTone((prev) => (prev === tone ? null : tone))}
-                        type="button"
-                      >
-                        <LegendMarker className={`map-marker--${tone}`}>
-                          {iconFromCodePoint(meta.iconCodePoint)}
-                        </LegendMarker>
-                        <span>{meta.label}</span>
-                      </LegendButton>
-                    </LegendItem>
-                  ))}
-                </LegendList>
-              )}
-            </LegendCard>
-          </Legend>
-        </MapShell>
-      </MapModalPanel>
-    </MapModal>
+    <MapPage>
+      <MapPageHeader>
+        <MapPageBackLink href="/">
+          <MapPageBackArrow aria-hidden="true">←</MapPageBackArrow>
+          <MapPageBackLabel>Torna alla homepage</MapPageBackLabel>
+        </MapPageBackLink>
+      </MapPageHeader>
+      <MapShell>
+        <div aria-label="Mappa del quartiere Val Cannuta" ref={containerRef} />
+        <Legend aria-label="Legenda mappa">
+          <LegendCard>
+            <LegendHeader
+              aria-label={legendOpen ? 'Chiudi legenda' : 'Apri legenda'}
+              onClick={() => setLegendOpen((prev) => !prev)}
+              type="button"
+            >
+              <LegendTitle>Legenda</LegendTitle>
+              <LegendToggle aria-hidden="true">{legendOpen ? '−' : '+'}</LegendToggle>
+            </LegendHeader>
+            {legendOpen && (
+              <LegendList>
+                {categories.map(([tone, meta]) => (
+                  <LegendItem key={tone}>
+                    <LegendButton
+                      $hidden={selectedTone !== null && selectedTone !== tone}
+                      onClick={() => setSelectedTone((prev) => (prev === tone ? null : tone))}
+                      type="button"
+                    >
+                      <LegendMarker className={`map-marker--${tone}`}>
+                        {iconFromCodePoint(meta.iconCodePoint)}
+                      </LegendMarker>
+                      <span>{meta.label}</span>
+                    </LegendButton>
+                  </LegendItem>
+                ))}
+              </LegendList>
+            )}
+          </LegendCard>
+        </Legend>
+      </MapShell>
+    </MapPage>
   );
 };

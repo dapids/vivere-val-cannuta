@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import styled from 'styled-components';
 
-export const OpenMapButton = styled.button`
+export const OpenMapButton = styled.a`
   align-self: flex-start;
   align-items: center;
   background: #81c784;
@@ -18,6 +19,7 @@ export const OpenMapButton = styled.button`
   margin-top: 14px;
   min-height: 42px;
   padding: 0 18px;
+  text-decoration: none;
   text-transform: uppercase;
   transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   -webkit-tap-highlight-color: transparent;
@@ -54,68 +56,48 @@ export const OpenMapIcon = styled.span`
   }
 `;
 
-export const MapModal = styled.div`
-  inset: 0;
-  position: fixed;
-  z-index: 2000;
-`;
-
-export const MapModalBackdrop = styled.button`
-  background: rgba(17, 24, 19, 0.62);
-  border: 0;
-  cursor: pointer;
-  inset: 0;
-  padding: 0;
-  position: absolute;
-  width: 100%;
-  -webkit-tap-highlight-color: transparent;
-
-  &:focus {
-    outline: none;
-  }
-`;
-
-export const MapModalPanel = styled.div`
+export const MapPage = styled.main`
   background: #ffffff;
-  border-radius: 0;
   display: flex;
   flex-direction: column;
   height: 100dvh;
-  inset: 0;
-  overflow: hidden;
-  position: absolute;
+  min-height: 100dvh;
 `;
 
-export const MapModalHeader = styled.div`
+export const MapPageHeader = styled.header`
   align-items: center;
   background: rgba(255, 255, 255, 0.96);
   border-bottom: 1px solid rgba(217, 227, 213, 0.9);
   display: flex;
   justify-content: flex-start;
   min-height: 46px;
-  padding: 4px 10px;
+  padding: 6px 10px;
   position: relative;
   z-index: 1200;
+
+  @media (max-width: 700px) {
+    padding: 4px 10px;
+  }
 `;
 
-export const CloseMapButton = styled.button`
+export const MapPageBackLink = styled(Link)`
   align-items: center;
   background: rgba(0, 0, 0, 0.07);
-  border: 0;
   border-radius: 999px;
   color: #4d4d4d;
-  cursor: pointer;
   display: inline-flex;
   font-size: 13px;
   font-weight: 700;
   gap: 6px;
   height: 30px;
   justify-content: center;
-  line-height: 1;
   letter-spacing: 0.04em;
+  line-height: 1;
   min-width: 30px;
   padding: 0 12px;
+  text-decoration: none;
   text-transform: uppercase;
+  white-space: nowrap;
   -webkit-tap-highlight-color: transparent;
 
   &:hover {
@@ -130,15 +112,19 @@ export const CloseMapButton = styled.button`
     outline: 2px solid #81c784;
     outline-offset: 2px;
   }
+
+  @media (max-width: 700px) {
+    align-self: auto;
+  }
 `;
 
-export const CloseMapArrow = styled.span`
+export const MapPageBackArrow = styled.span`
   font-size: 15px;
   line-height: 1;
   transform: translateY(-0.5px);
 `;
 
-export const CloseMapLabel = styled.span`
+export const MapPageBackLabel = styled.span`
   line-height: 1;
 `;
 
@@ -349,7 +335,7 @@ export const MapShell = styled.div`
   }
 
   .leaflet-container {
-    height: 100dvh;
+    height: 100%;
     width: 100%;
   }
 
@@ -446,7 +432,7 @@ export const MapShell = styled.div`
 
   @media (max-width: 700px) {
     .leaflet-container {
-      height: 100dvh;
+      height: 100%;
     }
   }
 `;
