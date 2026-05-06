@@ -113,7 +113,7 @@ export const markers = [
   },
   {
     description: 'Studio di fisioterapia per trattamenti e percorsi di recupero funzionale nel quartiere.',
-    iconCodePoint: 9877,
+    iconCodePoint: 128170,
     latitude: 41.89749069127335,
     longitude: 12.41461341338635,
     tone: 'pharmacy',
@@ -238,7 +238,7 @@ export const categoryMeta: Record<MarkerTone, { iconCodePoint: number; label: st
   pharmacy: { iconCodePoint: 9877, label: 'Salute e farmacie' },
   playground: { iconCodePoint: 128733, label: 'Giochi bimbi' },
   restaurant: { iconCodePoint: 127869, label: 'Ristoranti e pub' },
-  service: { iconCodePoint: 128663, label: 'Servizi auto' },
+  service: { iconCodePoint: 128663, label: 'Servizi per auto' },
   shop: { iconCodePoint: 128722, label: 'Supermercati' },
 };
 

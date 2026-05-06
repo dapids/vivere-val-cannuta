@@ -78,8 +78,10 @@ export const Button = styled.a`
   box-shadow: 0 10px 28px rgba(58, 80, 63, 0.12);
   color: #4b6750;
   display: inline-flex;
+  gap: 10px;
   font-size: 14px;
   font-weight: 700;
+  line-height: 1;
   letter-spacing: 0.08em;
   min-height: 42px;
   padding: 0 18px;
@@ -104,6 +106,22 @@ export const Button = styled.a`
   }
 `;
 
+export const CtaIcon = styled.span`
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 22px;
+  justify-content: center;
+  line-height: 0;
+  width: 22px;
+
+  svg {
+    display: block;
+    height: 22px;
+    width: 22px;
+  }
+`;
+
 export const Number = styled.span`
   color: #81C784;
   font-size: 20px;
@@ -111,17 +129,35 @@ export const Number = styled.span`
 `
 
 export const CtaStack = styled.div`
-  align-items: flex-start;
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 12px;
+  gap: 12px;
+  margin-bottom: 10px;
+  margin-top: 14px;
 
   & > * {
     align-items: center;
     display: inline-flex;
     height: 42px;
     margin: 0;
+  }
+`;
+
+export const InstagramButton = styled(Button)`
+  background: rgba(255, 242, 248, 0.92);
+  border-color: #e7b4c7;
+  color: #8c3e61;
+
+  &:hover {
+    background: rgba(255, 236, 244, 0.98);
+    border-color: #d78fab;
+    box-shadow: 0 14px 30px rgba(126, 62, 91, 0.16);
+    transform: translateY(-1px);
+  }
+
+  &:focus-visible {
+    outline-color: #c05a87;
   }
 `;
 

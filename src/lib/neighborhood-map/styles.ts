@@ -9,10 +9,12 @@ export const OpenMapButton = styled.button`
   color: #ffffff;
   cursor: pointer;
   display: inline-flex;
+  gap: 8px;
   font-size: 14px;
   font-weight: 700;
+  line-height: 1;
   letter-spacing: 0.08em;
-  margin: 0;
+  margin-top: 14px;
   min-height: 42px;
   padding: 0 18px;
   text-transform: uppercase;
@@ -32,6 +34,22 @@ export const OpenMapButton = styled.button`
   &:focus-visible {
     outline: 2px solid #81c784;
     outline-offset: 3px;
+  }
+`;
+
+export const OpenMapIcon = styled.span`
+  align-items: center;
+  display: inline-flex;
+  flex-shrink: 0;
+  height: 22px;
+  justify-content: center;
+  line-height: 0;
+  width: 22px;
+
+  svg {
+    display: block;
+    height: 22px;
+    width: 22px;
   }
 `;
 
