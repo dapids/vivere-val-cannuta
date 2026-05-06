@@ -24,7 +24,7 @@ export const markers = [
     title: 'Area giochi CTS',
   },
   {
-    description: "Autofficina Coluzzi, officina di riferimento in zona per manutenzione, assistenza e piccoli interventi sull'auto.",
+    description: "Officina di quartiere per manutenzione, assistenza e piccoli interventi sull'auto.",
     iconCodePoint: 128663,
     latitude: 41.90237710449449,
     longitude: 12.421548355889401,
@@ -32,7 +32,7 @@ export const markers = [
     title: 'Autofficina Coluzzi',
   },
   {
-    description: "Autolavaggio Car Wash, utile per la pulizia rapida e completa dell'auto senza allontanarsi dal quartiere.",
+    description: "Autolavaggio utile per la pulizia rapida e completa dell'auto senza allontanarsi dal quartiere.",
     iconCodePoint: 128663,
     latitude: 41.89204979882365,
     longitude: 12.414239655213978,
@@ -48,7 +48,7 @@ export const markers = [
     title: 'Bar Bistrot Sunseri',
   },
   {
-    description: "Bar Castroni, un'istituzione per il caffè: tantissimi prodotti tipici italiani di alta qualità, oltre a un vasto assortimento di cibi etnici, tè, bevande e liquori da tutto il mondo.",
+    description: 'Punto caffetteria con ampia scelta di prodotti alimentari, bevande e specialità internazionali.',
     iconCodePoint: 9749,
     latitude: 41.90273505319038,
     longitude: 12.42312100026914,
@@ -56,7 +56,7 @@ export const markers = [
     title: 'Bar Castroni',
   },
   {
-    description: "Bar Da.ro&apos;, un locale del quartiere dove fermarsi per un caffè, una pausa o due chiacchiere in compagnia.",
+    description: "Locale del quartiere dove fermarsi per un caffè, una pausa o due chiacchiere in compagnia.",
     iconCodePoint: 9749,
     latitude: 41.89738973217479,
     longitude: 12.413952752795993,
@@ -64,7 +64,7 @@ export const markers = [
     title: "Bar Da.ro'",
   },
   {
-    description: 'Bar H1, un punto di ritrovo del quartiere per una pausa veloce, un caffè o un aperitivo.',
+    description: 'Punto di ritrovo del quartiere per una pausa veloce, un caffè o un aperitivo.',
     iconCodePoint: 9749,
     latitude: 41.89985141184872,
     longitude: 12.414566069054729,
@@ -72,7 +72,7 @@ export const markers = [
     title: 'Bar H1',
   },
   {
-    description: 'Un bar accogliente dove stare con gli amici, prendere un bel caffè e vivere il quartiere nel suo ritmo più lento.',
+    description: 'Bar di quartiere per colazioni, caffè e pause durante la giornata.',
     iconCodePoint: 9749,
     latitude: 41.90216557655259,
     longitude: 12.413531202787768,
@@ -80,7 +80,7 @@ export const markers = [
     title: 'Caffé Petrangeli',
   },
   {
-    description: 'Candy Cream Gelateria, ideale per gelati artigianali e una pausa dolce nel quartiere.',
+    description: 'Gelateria di quartiere ideale per una pausa dolce.',
     iconCodePoint: 127846,
     latitude: 41.90254466920456,
     longitude: 12.421656562799734,
@@ -96,7 +96,7 @@ export const markers = [
     title: 'Campo di basket',
   },
   {
-    description: 'La Farmacia Divina Provvidenza: un punto di riferimento per la salute del quartiere, con personale disponibile e un ampio assortimento di prodotti.',
+    description: 'Farmacia di zona per farmaci da banco, prescrizioni e servizi legati alla salute.',
     iconCodePoint: 9877,
     latitude: 41.89604554224632,
     longitude: 12.4113046726689,
@@ -104,7 +104,7 @@ export const markers = [
     title: 'Farmacia Divina Provvidenza',
   },
   {
-    description: "La Farmacia Gregorio XI: un altro presidio sanitario del quartiere, facilmente raggiungibile dalla zona est di Val Cannuta.",
+    description: 'Un presidio sanitario del quartiere, facilmente raggiungibile dalla zona est di Val Cannuta.',
     iconCodePoint: 9877,
     latitude: 41.89976930008871,
     longitude: 12.419163019071672,
@@ -112,7 +112,7 @@ export const markers = [
     title: 'Farmacia Gregorio XI',
   },
   {
-    description: 'Studio di fisioterapia di Laura Torassa, punto di riferimento per trattamenti fisioterapici e percorsi di recupero funzionale nel quartiere.',
+    description: 'Studio di fisioterapia per trattamenti e percorsi di recupero funzionale nel quartiere.',
     iconCodePoint: 9877,
     latitude: 41.89749069127335,
     longitude: 12.41461341338635,
@@ -136,7 +136,7 @@ export const markers = [
     title: 'Fontanella',
   },
   {
-    description: "Forno L'angolo delle delizie, perfetto per pane fresco, prodotti da forno e sfizi salati e dolci nel quartiere.",
+    description: 'Forno di quartiere per pane fresco, prodotti da forno e sfizi salati e dolci.',
     iconCodePoint: 127838,
     latitude: 41.902753570339385,
     longitude: 12.4228617203887,
@@ -144,7 +144,7 @@ export const markers = [
     title: "Forno L'angolo delle delizie",
   },
   {
-    description: "Hartigan's Irish Pub, locale ideale per una birra, una serata tra amici e un'atmosfera internazionale nel quartiere.",
+    description: "Pub di quartiere ideale per una birra e una serata tra amici.",
     iconCodePoint: 127866,
     latitude: 41.90180026041411,
     longitude: 12.424266677422285,
@@ -152,7 +152,7 @@ export const markers = [
     title: "Hartigan's Irish pub",
   },
   {
-    description: 'Lavanderia Bismillah, comoda per lavaggio e asciugatura rapida dei capi nel quartiere.',
+    description: 'Lavanderia comoda per lavaggio e asciugatura rapida dei capi nel quartiere.',
     iconCodePoint: 129530,
     latitude: 41.89356354975247,
     longitude: 12.408767169311313,
@@ -184,7 +184,7 @@ export const markers = [
     title: "Tenuta dell'Acquafredda",
   },
   {
-    description: 'Pizza alla pala, trancio e sfizi da asporto: Love 4 Pizza è il posto giusto per una pausa golosa nel quartiere.',
+    description: 'Pizzeria da asporto con pizza alla pala, tranci e proposte veloci.',
     iconCodePoint: 127829,
     latitude: 41.901985108737,
     longitude: 12.413002100206185,
@@ -192,7 +192,7 @@ export const markers = [
     title: 'Love 4 Pizza',
   },
   {
-    description: 'Un ristorante dal carattere tipicamente romano, ideale per un pranzo in famiglia o una cena in compagnia. Ottima anche la pizza.',
+    description: 'Ristorante di cucina romana con servizio per pranzo e cena.',
     iconCodePoint: 127869,
     latitude: 41.90027467214945,
     longitude: 12.41627270222011,
@@ -200,7 +200,7 @@ export const markers = [
     title: 'Ristorante I Fraschettari',
   },
   {
-    description: 'Servizio di sartoria e riparazioni utilissimo per orli, modifiche e sistemazioni rapide dei capi.',
+    description: 'Servizio di sartoria per orli, modifiche e riparazioni rapide dei capi.',
     iconCodePoint: 9986,
     latitude: 41.90290218813604,
     longitude: 12.414022317792746,
@@ -208,7 +208,7 @@ export const markers = [
     title: 'Taglia Cuci Scuci',
   },
   {
-    description: 'Il Carrefour del quartiere, aperto 7 giorni su 7, 24 ore su 24: sempre disponibile per qualsiasi necessità, di giorno come di notte.',
+    description: "Punto vendita di quartiere utile per la spesa quotidiana e le necessita dell'ultimo minuto.",
     iconCodePoint: 128722,
     latitude: 41.894897306089916,
     longitude: 12.414055710030832,
@@ -216,7 +216,7 @@ export const markers = [
     title: 'Supermercato Carrefour',
   },
   {
-    description: 'Il supermercato CTS di riferimento per la spesa quotidiana del quartiere, comodo e dotato di un ampio parcheggio.',
+    description: 'Supermercato di zona per la spesa quotidiana con parcheggio dedicato.',
     iconCodePoint: 128722,
     latitude: 41.89365421749571,
     longitude: 12.408494492663815,

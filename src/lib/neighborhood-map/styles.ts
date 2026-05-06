@@ -73,8 +73,8 @@ export const MapModalHeader = styled.div`
   border-bottom: 1px solid rgba(217, 227, 213, 0.9);
   display: flex;
   justify-content: flex-start;
-  min-height: 56px;
-  padding: 8px 12px;
+  min-height: 46px;
+  padding: 4px 10px;
   position: relative;
   z-index: 1200;
 `;
@@ -90,11 +90,11 @@ export const CloseMapButton = styled.button`
   font-size: 13px;
   font-weight: 700;
   gap: 6px;
-  height: 34px;
+  height: 30px;
   justify-content: center;
   line-height: 1;
   letter-spacing: 0.04em;
-  min-width: 34px;
+  min-width: 30px;
   padding: 0 12px;
   text-transform: uppercase;
   -webkit-tap-highlight-color: transparent;
@@ -140,7 +140,7 @@ export const LegendCard = styled.div`
   backdrop-filter: blur(12px);
   background: rgba(255, 255, 255, 0.9);
   border: 1px solid rgba(217, 227, 213, 0.9);
-  border-radius: 18px;
+  border-radius: 8px;
   box-shadow: 0 18px 40px rgba(58, 80, 63, 0.12);
   width: 15vw;
   max-width: 15vw;
