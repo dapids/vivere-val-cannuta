@@ -51,7 +51,7 @@ export const Header = styled.header`
   }
 `
 
-export const Hero = styled.div`
+export const Hero = styled.main`
   align-content: center;
   display: flex;
   flex-direction: column;

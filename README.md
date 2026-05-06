@@ -1,5 +1,5 @@
 # Vivere Val Vannuta
-Il sito della community del quartiere Val Cannuta di Roma.
+Il sito del quartiere Val Cannuta di Roma.
 
 ## Getting Started
 

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://viverevalcannuta.it/sitemap.xml
