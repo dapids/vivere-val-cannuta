@@ -350,23 +350,38 @@ const LegendTitle = styled.p`
   text-transform: uppercase;
 `;
 
-const LegendHeader = styled.div`
+const LegendHeader = styled.button`
   align-items: center;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
   margin: 0;
   min-height: 24px;
+  padding: 0;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #81c784;
+    outline-offset: 4px;
+  }
 `;
 
-const LegendToggle = styled.button`
+const LegendToggle = styled.span`
   background: rgba(0, 0, 0, 0.06);
-  border: 0;
   border-radius: 999px;
   color: #4d4d4d;
-  cursor: pointer;
+  display: inline-flex;
   font-size: 16px;
   font-weight: 700;
   height: 24px;
+  justify-content: center;
   line-height: 1;
   padding: 0;
   width: 24px;
@@ -406,10 +421,20 @@ const LegendButton = styled.button<{ $hidden?: boolean }>`
   text-align: left;
   transition: opacity 0.2s;
   width: 100%;
+  -webkit-tap-highlight-color: transparent;
 
   &:hover {
     color: #3e3e3e;
     opacity: ${({ $hidden }) => ($hidden ? 0.55 : 1)};
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid #81c784;
+    outline-offset: 2px;
   }
 `;
 
@@ -480,6 +505,18 @@ const MapShell = styled.div`
   min-height: 100dvh;
   overflow: hidden;
   position: relative;
+
+  button,
+  a,
+  .leaflet-control-zoom a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button:focus:not(:focus-visible),
+  a:focus:not(:focus-visible),
+  .leaflet-control-zoom a:focus:not(:focus-visible) {
+    outline: none;
+  }
 
   .leaflet-container {
     height: 100dvh;
@@ -587,8 +624,8 @@ export const NeighborhoodMap = () => {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const mapRef = useRef<import('leaflet').Map | null>(null);
   const markerRefs = useRef<Array<import('leaflet').Marker>>([]);
-  const [hiddenTones, setHiddenTones] = useState<Set<string>>(new Set());
-  const [hasInteractedWithLegend, setHasInteractedWithLegend] = useState(false);
+  const [selectedTone, setSelectedTone] = useState<string | null>(null);
+  const [mapReady, setMapReady] = useState(false);
   const [legendOpen, setLegendOpen] = useState(true);
 
   const syncMarkerVisibility = (
@@ -607,43 +644,8 @@ export const NeighborhoodMap = () => {
     });
   };
 
-  const toggleTone = (tone: string) => {
-    const map = mapRef.current;
-    if (!map) return;
-
-    setHiddenTones((prev) => {
-      const next = new Set(prev);
-      if (next.has(tone)) {
-        next.delete(tone);
-      } else {
-        next.add(tone);
-      }
-
-      syncMarkerVisibility(map, next);
-      return next;
-    });
-  };
-
-  const selectOnlyTone = (tone: string) => {
-    const map = mapRef.current;
-    if (!map) return;
-
-    const nextHiddenTones = new Set(
-      categories.map(([categoryTone]) => categoryTone).filter((categoryTone) => categoryTone !== tone)
-    );
-
-    setHiddenTones(nextHiddenTones);
-    syncMarkerVisibility(map, nextHiddenTones);
-  };
-
   const handleLegendToneClick = (tone: string) => {
-    if (!hasInteractedWithLegend) {
-      setHasInteractedWithLegend(true);
-      selectOnlyTone(tone);
-      return;
-    }
-
-    toggleTone(tone);
+    setSelectedTone((prev) => (prev === tone ? null : tone));
   };
 
   useEffect(() => {
@@ -651,6 +653,21 @@ export const NeighborhoodMap = () => {
       setLegendOpen(false);
     }
   }, []);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!map || !mapReady) return;
+
+    const hiddenTones = selectedTone
+      ? new Set(
+          categories
+            .map(([categoryTone]) => categoryTone)
+            .filter((categoryTone) => categoryTone !== selectedTone)
+        )
+      : new Set<string>();
+
+    syncMarkerVisibility(map, hiddenTones);
+  }, [mapReady, selectedTone]);
 
   useEffect(() => {
     let mapInstance: import('leaflet').Map | undefined;
@@ -674,6 +691,7 @@ export const NeighborhoodMap = () => {
 
       mapRef.current = mapInstance;
       markerRefs.current = [];
+      setMapReady(false);
 
       L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
         attribution: '&copy; OpenStreetMap contributors, Tiles style by Humanitarian OpenStreetMap Team hosted by OpenStreetMap France',
@@ -699,6 +717,8 @@ export const NeighborhoodMap = () => {
 
         markerRefs.current.push(markerInstance);
       });
+
+      setMapReady(true);
     };
 
     setupMap().catch(() => {});
@@ -706,6 +726,7 @@ export const NeighborhoodMap = () => {
     return () => {
       markerRefs.current = [];
       mapRef.current = null;
+      setMapReady(false);
       mapInstance?.remove();
     };
   }, []);
@@ -716,13 +737,13 @@ export const NeighborhoodMap = () => {
         <div aria-label="Mappa del quartiere Val Cannuta" ref={containerRef} />
         <Legend aria-label="Legenda mappa">
           <LegendCard>
-            <LegendHeader>
+            <LegendHeader
+              aria-label={legendOpen ? 'Chiudi legenda' : 'Apri legenda'}
+              onClick={() => setLegendOpen((prev) => !prev)}
+              type="button"
+            >
               <LegendTitle>Legenda</LegendTitle>
-              <LegendToggle
-                aria-label={legendOpen ? 'Chiudi legenda' : 'Apri legenda'}
-                onClick={() => setLegendOpen((prev) => !prev)}
-                type="button"
-              >
+              <LegendToggle aria-hidden="true">
                 {legendOpen ? '−' : '+'}
               </LegendToggle>
             </LegendHeader>
@@ -731,7 +752,7 @@ export const NeighborhoodMap = () => {
                 {categories.map(([tone, meta]) => (
                   <LegendItem key={tone}>
                     <LegendButton
-                      $hidden={hiddenTones.has(tone)}
+                      $hidden={selectedTone !== null && selectedTone !== tone}
                       onClick={() => handleLegendToneClick(tone)}
                       type="button"
                     >
