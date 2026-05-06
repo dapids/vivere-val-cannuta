@@ -55,15 +55,15 @@ export default function Home() {
 
           <Margin />
         </Hero>
-      </AboveFolderContainer>
 
-      <Footer>
-        <p>
-          &copy; {copyrightYears} Vivere Val Cannuta
-          <br />
-          Sito web realizzato da <a href="https://www.davidsorrentino.com/" target="_blank">David Sorrentino</a>
-        </p>
-      </Footer>
+        <Footer>
+          <p>
+            &copy; {copyrightYears} Vivere Val Cannuta
+            <br />
+            Sito web realizzato da <a href="https://www.davidsorrentino.com/" target="_blank">David Sorrentino</a>
+          </p>
+        </Footer>
+      </AboveFolderContainer>
     </>
   );
 }

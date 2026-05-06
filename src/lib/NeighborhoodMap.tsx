@@ -16,7 +16,7 @@ export const NeighborhoodMap = () => {
             <circle cx="12" cy="11" r="2.1" stroke="currentColor" strokeWidth="2" />
           </svg>
         </OpenMapIcon>
-        <span>Scopri la mappa del quartiere</span>
+        <span>Mappa del quartiere</span>
       </OpenMapButton>
 
       {isMapOpen && <NeighborhoodMapModal onClose={() => setIsMapOpen(false)} />}

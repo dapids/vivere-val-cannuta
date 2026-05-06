@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 export const OpenMapButton = styled.button`
+  align-self: flex-start;
   align-items: center;
   background: #81c784;
   border: 1px solid #73b477;
