@@ -2,13 +2,12 @@ import Link from 'next/link';
 import styled from 'styled-components';
 
 export const OpenMapButton = styled.a`
-  align-self: flex-start;
   align-items: center;
-  background: #81c784;
-  border: 1px solid #73b477;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #9fb7a0;
   border-radius: 999px;
-  box-shadow: 0 10px 28px rgba(58, 80, 63, 0.16);
-  color: #ffffff;
+  box-shadow: 0 10px 28px rgba(58, 80, 63, 0.12);
+  color: #4b6750;
   cursor: pointer;
   display: inline-flex;
   gap: 8px;
@@ -16,17 +15,17 @@ export const OpenMapButton = styled.a`
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.08em;
-  margin-top: 14px;
   min-height: 42px;
   padding: 0 18px;
   text-decoration: none;
   text-transform: uppercase;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
   -webkit-tap-highlight-color: transparent;
 
   &:hover {
-    background-color: #6ea96e;
-    box-shadow: 0 14px 30px rgba(58, 80, 63, 0.22);
+    background-color: #ffffff;
+    border-color: #7fa582;
+    box-shadow: 0 14px 30px rgba(58, 80, 63, 0.18);
     transform: translateY(-1px);
   }
 

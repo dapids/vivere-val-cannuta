@@ -97,19 +97,8 @@ export default function Home() {
 
           <p>Vivi a Val Cannuta? Allora unisciti alla community! Potrai connetterti con i tuoi vicini, condividere informazioni utili, discutere di eventi locali, e contribuire al benessere del nostro quartiere e della nostra community.</p>
           <p>Su Vivere Val Cannuta trovi anche una mappa del quartiere con luoghi utili, attività locali e riferimenti rapidi per orientarti meglio nella zona ovest di Roma.</p>
-          <NeighborhoodMap />
           <CtaStack>
-            <InstagramButton href="https://www.instagram.com/viverevalcannuta/" rel="noreferrer" target="_blank">
-              <CtaIcon aria-hidden="true">
-                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <rect height="15" rx="4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="15" x="4.5" y="4.5" />
-                  <circle cx="12" cy="12" r="3.4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
-                  <circle cx="16.8" cy="7.3" fill="currentColor" r="1.1" />
-                </svg>
-              </CtaIcon>
-              <span>Seguici su Instagram</span>
-            </InstagramButton>
-            <Button href="https://discord.gg/J2whmnHhTG" rel="noreferrer" target="_blank">
+            <Button href="https://chat.whatsapp.com/JHeZnKlYwuUDpiqXlevKon" rel="noreferrer" target="_blank">
               <CtaIcon aria-hidden="true">
                 <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <circle cx="9" cy="9" r="3" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
@@ -120,6 +109,17 @@ export default function Home() {
               </CtaIcon>
               <span>Unisciti alla community</span>
             </Button>
+            <NeighborhoodMap />
+            <InstagramButton href="https://www.instagram.com/viverevalcannuta/" rel="noreferrer" target="_blank">
+              <CtaIcon aria-hidden="true">
+                <svg fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <rect height="15" rx="4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" width="15" x="4.5" y="4.5" />
+                  <circle cx="12" cy="12" r="3.4" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" />
+                  <circle cx="16.8" cy="7.3" fill="currentColor" r="1.1" />
+                </svg>
+              </CtaIcon>
+              <span>Seguici su Instagram</span>
+            </InstagramButton>
           </CtaStack>
 
           <Members />
